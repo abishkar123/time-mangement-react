@@ -2,14 +2,14 @@ import React from 'react'
 
 export const BadList = () => {
   return (
-    <div class="col">
-    <h2 class="text-center">Bad List</h2>
+    <div className="col">
+    <h2 className="text-center">Bad List</h2>
     <hr />
 
-    <table class="table table-striped">
+    <table className="table table-striped">
       <tbody id="bad-list"></tbody>
     </table>
-    <div class="">
+    <div className="">
       You could hae saved =
       <span id="totalBadHrs">0</span> Hrs
     </div>
