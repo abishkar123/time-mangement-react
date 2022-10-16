@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Display } from './NoToList/Display';
+import { Form } from './NoToList/Form';
+import { Title } from './NoToList/Title';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class="wrapper">
+      <div class="container">
+        {/* <!-- top title --> */}
+        <Title/>
+
+        {/* <!-- form area --> */}
+        <Form/>
+
+        {/* <!-- list area --> */}
+        <Display/>
+
+        <div class="row">
+          <div class="col">
+            The total time allocated = <span id="totalHrs">0</span> hr
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }
