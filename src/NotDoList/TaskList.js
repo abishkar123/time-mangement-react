@@ -1,13 +1,35 @@
 import React from 'react'
 
-export const TaskList = () => {
+export const TaskList = ({entryList, handleOnDelete, taskswitch, badList}) => {
   return (
     <div className="col">
-          <h2 className="text-center">Task List</h2>
+          <h2 className="text-center">Entry List</h2>
           <hr />
 
           <table className="table table-striped">
-            <tbody id="task-list"></tbody>
+            <tbody id="task-list">
+                {entryList.map((item, i) =>(
+                     <tr key ={i}>
+                     <th scope="row">{i + 1}</th>
+                     <td>{item.task}</td>
+                     <td>{item.hr}hr</td>
+                     <td>
+                       <button 
+                       onClick ={()=>handleOnDelete(item._id)} class="btn btn-danger">
+                         <i class="fa-solid fa-trash"></i>
+                       </button>
+                       <button onClick={()=>taskswitch(item._id, "bad")}
+                    class="btn btn-success">
+                         <i class="fa-solid fa-arrow-right-long"></i>
+                       </button>
+                     </td>
+                   </tr>
+                ) )}
+
+
+
+
+            </tbody>
           </table>
         </div>
   );

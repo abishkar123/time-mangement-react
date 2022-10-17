@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useState} from 'react'
 
-export const Form = () => {
+export const Form = ({taskEntry}) => {
+    const [data, setData] = useState({})
+
+    const handleOnChange = (e) =>{
+        const { value, name} = e.target
+        // console.log(name,value);
+        setData({
+            ...data,
+           [name]: value,
+           type: "entry",
+        })
+    
+    };
+
+    const handleOnSubmit = (e)=>{
+        e.preventDefault();
+        taskEntry(data);
+    };
+
+
+
+    
   return (
-    <form action="javascript:void(0)" onsubmit="handleOnSubmit(this)">
+    <form  onSubmit={handleOnSubmit}>
         <div className="row g-2 mt-3">
           <div className="col-md-6">
             <input
@@ -11,6 +32,8 @@ export const Form = () => {
               className="form-control"
               placeholder="Enter task title"
               required
+              onChange={handleOnChange}
+              
             />
           </div>
           <div className="col-md-3">
@@ -20,12 +43,14 @@ export const Form = () => {
               className="form-control"
               placeholder="Enter hours"
               required
+              onChange={handleOnChange}
+              
               min="1"
             />
           </div>
           <div className="col-md-3">
             <div className="d-grid gap-2">
-              <button className="btn btn-primary">
+              <button type='submit'  className="btn btn-primary">
                 <i className="fa-solid fa-pen-to-square"></i> Add New Task
               </button>
             </div>
