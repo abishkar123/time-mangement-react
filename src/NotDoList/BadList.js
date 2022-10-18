@@ -1,7 +1,8 @@
 import React from 'react'
 
 export const BadList = ({badList, handleOnDelete, taskswitch}) => {
-  return (
+  const ttlHr = badList.reduce((acc, item) => acc + item.hr, 0);
+  return(
     <div className="col">
     <h2 className="text-center">Bad List</h2>
     <hr />
@@ -31,9 +32,8 @@ export const BadList = ({badList, handleOnDelete, taskswitch}) => {
 
       </tbody>
     </table>
-    <div className="">
-      You could hae saved =
-      <span id="totalBadHrs">0</span> Hrs
+    <div className="text-end fw-bold">
+      You could hae saved = {ttlHr} Hrs
     </div>
   </div>
   )

@@ -1,25 +1,23 @@
 import React, { useState} from 'react'
+import { reandomStr } from '../utils/randomGenerator';
+
 
 export const Form = ({taskEntry}) => {
     const [data, setData] = useState({})
 
     const handleOnChange = (e) =>{
         const { value, name} = e.target
-        // console.log(name,value);
         setData({
             ...data,
-           [name]: value,
+           [name]: name === 'hr'? +value :value,
            type: "entry",
         })
-    
     };
-
     const handleOnSubmit = (e)=>{
         e.preventDefault();
-        taskEntry(data);
+        taskEntry({...data, _id: reandomStr });
+      
     };
-
-
 
     
   return (
